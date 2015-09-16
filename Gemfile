@@ -4,6 +4,7 @@ source "https://rubygems.org"
 gem 'rake'
 gem 'activesupport'
 gem 'bcrypt', '~> 3.1.7'
+gem 'twiiter_oauth'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
