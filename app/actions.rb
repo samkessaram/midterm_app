@@ -10,19 +10,19 @@ end
 enable :sessions
 
 get '/oauth/request_token' do
-  consumer = OAuth::Consumer.new CONSUMER_KEY, CONSUMER_SECRET, :site => 'https://api.twitter.com'
+  consumer = OAuth::Consumer.new @@CONSUMER_KEY, @@CONSUMER_SECRET, :site => 'https://api.twitter.com'
 
-  request_token = consumer.get_request_token :oauth_callback => CALLBACK_URL
+  request_token = consumer.get_request_token :oauth_callback => @@CALLBACK_URL
   session[:request_token] = request_token.token
   session[:request_token_secret] = request_token.secret
 
   puts "request: #{session[:request_token]}, #{session[:request_token_secret]}"
 
-  request_token.authorize_url
+  redirect request_token.authorize_url
 end
 
 get '/oauth/callback' do
-  consumer = OAuth::Consumer.new CONSUMER_KEY, CONSUMER_SECRET, :site => 'https://api.twitter.com'
+  consumer = OAuth::Consumer.new @@CONSUMER_KEY, @@CONSUMER_SECRET, :site => 'https://api.twitter.com'
 
   puts "CALLBACK: request: #{session[:request_token]}, #{session[:request_token_secret]}"
 
