@@ -20,11 +20,15 @@ GEM
     bond (0.5.1)
     builder (3.2.2)
     coderay (1.1.0)
+    faraday (0.8.5)
+      multipart-post (~> 1.1)
     i18n (0.7.0)
     json (1.8.3)
     method_source (0.8.2)
     minitest (5.8.0)
     multi_json (1.11.2)
+    multipart-post (1.1.5)
+    oauth (0.4.7)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -46,6 +50,7 @@ GEM
       ripl (>= 0.7.0)
     shotgun (0.9.1)
       rack (>= 1.0)
+    simple_oauth (0.2.0)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -69,6 +74,10 @@ GEM
       ripl-multi_line (>= 0.2.4)
       ripl-rack (>= 0.2.0)
       sinatra (>= 1.2.1)
+    twitter (4.5.0)
+      faraday (~> 0.8, < 0.10)
+      multi_json (~> 1.0)
+      simple_oauth (~> 0.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
 
@@ -78,6 +87,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   bcrypt (~> 3.1.7)
+  oauth (~> 0.4.7)
   pry
   puma
   rake
@@ -87,6 +97,7 @@ DEPENDENCIES
   sinatra-contrib
   sqlite3
   tux
+  twitter (~> 4.5.0)
 
 BUNDLED WITH
    1.10.6
