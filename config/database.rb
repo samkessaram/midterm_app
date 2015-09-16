@@ -5,11 +5,8 @@ configure do
   end
 
   set :database, {
-    adapter: "postgresql",
-    database: "midterm",
-    host: "localhost",
-    user: 'vagrant',
-    password: ''
+    adapter: "sqlite3",
+    database: "db/db.sqlite3"
   }
 
   # Load all models from app/models, using autoload instead of require
