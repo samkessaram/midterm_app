@@ -18,7 +18,7 @@ get '/oauth/request_token' do
 
   puts "request: #{session[:request_token]}, #{session[:request_token_secret]}"
 
-  request_token.authorize_url
+  redirect request_token.authorize_url
 end
 
 get '/oauth/callback' do
