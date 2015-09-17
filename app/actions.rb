@@ -7,8 +7,6 @@ get '/login' do
   erb :'user/login'
 end
 
-enable :sessions
-
 get '/oauth/request_token' do
   consumer = OAuth::Consumer.new @@CONSUMER_KEY, @@CONSUMER_SECRET, :site => 'https://api.twitter.com'
 
@@ -39,29 +37,19 @@ get '/oauth/callback' do
 
   "[#{Twitter.user.screen_name}] access_token: #{access_token.token}, secret: #{access_token.secret}"
 
-  @user = User.new(
+  if User.where(token:access_token.token)
+    @user = User.where(token:access_token.token)[0]
+    session[:user_id] = @user.id
+    redirect '/tweets'
+  else
+    @user = User.new(
     token: access_token.token,
     secret: access_token.secret
     )
-
     if @user.save
       session[:user_id] = @user.id
-      redirect '/tweets'
     else
       redirect '/'
     end
-end
-
-post '/tracks' do
-  @track = Track.new(
-    author: params[:author],
-    title: params[:title],
-    URL: params[:URL],
-    user_id: session[:user_id]
-    )
-  if @track.save
-    redirect '/tracks'
-  else
-    erb :'tracks/new'
   end
 end
