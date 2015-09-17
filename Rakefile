@@ -53,3 +53,8 @@ desc 'Retrieves the current schema version number'
 task "db:version" do
   puts "Current version: #{ActiveRecord::Migrator.current_version}"
 end
+
+
+task :check_db
+  Tweet.where(post_time:10.minute.ago..Time.now)
+end

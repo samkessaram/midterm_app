@@ -56,6 +56,7 @@ end
 
 get '/tweets' do
   erb :'tweets/index'
+  binding.pry
 end
 
 post '/tweets/index' do
@@ -73,7 +74,6 @@ post '/tweets/index' do
     config.oauth_token = @user.token
     config.oauth_token_secret = @user.secret
   end
-  binding.pry
   client.update("#{params[:tweet]}")
   redirect '/tweets'
 end
