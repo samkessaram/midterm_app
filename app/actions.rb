@@ -37,7 +37,7 @@ get '/oauth/callback' do
 
   "[#{Twitter.user.screen_name}] access_token: #{access_token.token}, secret: #{access_token.secret}"
 
-  if User.where(token:access_token.token)
+  if User.exists?(token:access_token.token)
     @user = User.where(token:access_token.token)[0]
     session[:user_id] = @user.id
     redirect '/tweets'
