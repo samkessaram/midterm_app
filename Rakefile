@@ -55,6 +55,17 @@ task "db:version" do
 end
 
 
-task :check_db
-  Tweet.where(post_time:10.minute.ago..Time.now)
+task 'db:check' do
+  time = Time.now
+  Tweet.where(post_time:1.day.ago..time.to_datetime).each do |status|
+    @user = User.find(status.user_id)
+      client = Twitter.configure do |config|
+        config.consumer_key = @@CONSUMER_KEY
+        config.consumer_secret = @@CONSUMER_SECRET
+        config.oauth_token = @user.token
+        config.oauth_token_secret = @user.secret
+      end
+    client.update(status.tweet)
+    status.destroy
+  end
 end
