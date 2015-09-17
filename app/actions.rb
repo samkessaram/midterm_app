@@ -57,3 +57,9 @@ end
 get '/tweets' do
   erb :'tweets/index'
 end
+
+post '/' do
+  session[:user_id] = nil
+  erb :index
+end
+
