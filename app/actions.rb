@@ -57,16 +57,3 @@ end
 get '/tweets' do
   erb :'tweets/index'
 end
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 5d6010bdf03ce5be6a41a45959b017ea220a8e07
