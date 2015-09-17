@@ -56,12 +56,14 @@ end
 
 get '/tweets' do
   erb :'tweets/index'
-  binding.pry
 end
 
 post '/tweets/index' do
-  time_scheduled = params[:month] + params[:day] + params[:hour] + params[:minute] + params[:ampm]
-  date = Time.parse time_scheduled
+  format = "%d/%m %H:%M"
+  date_time = params[:day] + "/" + params[:month] + " " + params[:hour] + ":" + params[:minute]
+  binding.pry
+  date = DateTime.strptime(date_time, format)
+  binding.pry
   @tweet = Tweet.create(
     user_id: session[:user_id],
     tweet: params[:tweet],
