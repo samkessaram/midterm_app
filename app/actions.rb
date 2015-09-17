@@ -59,9 +59,12 @@ get '/tweets' do
 end
 
 post '/tweets/index' do
+  time_scheduled = params[:month] + params[:day] + params[:hour] + params[:minute] + params[:ampm]
+  date = Time.parse time_scheduled
   @tweet = Tweet.create(
     user_id: session[:user_id],
-    tweet: params[:tweet]
+    tweet: params[:tweet],
+    post_time: date
     )
   @user = User.find(session[:user_id])
   client = Twitter.configure do |config|
@@ -70,6 +73,7 @@ post '/tweets/index' do
     config.oauth_token = @user.token
     config.oauth_token_secret = @user.secret
   end
+  binding.pry
   client.update("#{params[:tweet]}")
   redirect '/tweets'
 end
