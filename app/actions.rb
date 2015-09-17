@@ -74,12 +74,7 @@ post '/tweets/index' do
   redirect '/tweets'
 end
 
-
-post '/vote' do
-  @vote = Vote.create(
-    track_id: params[:track_id],
-    user_id: session[:user_id],
-    vote_count: 1
-    )
-  redirect '/tracks'
+post '/' do
+  session[:user_id] = nil
+  erb :index
 end
