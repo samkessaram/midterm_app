@@ -1,8 +1,14 @@
 <header id="top" class="header">
   <div class="text-vertical-center">
-    <h1>Buffer Clone</h1>
-    <h3>Sign in with Twitter</h3>
-    <br>
-    <a href="/oauth/request_token" class="btn btn-dark btn-lg">Sign In</a>
+    <h1>BufferClone</h1>
+    <% if session[:user_id].nil? %>
+      <h3>Sign in with Twitter</h3>
+      <br>
+      <a href="/oauth/request_token" class="btn btn-dark btn-lg">Sign In</a>
+    <% else %>
+      <h3>Schedule a Tweet</h3>
+      <br>
+      <a href="/oauth/request_token" class="btn btn-dark btn-lg">Add a Tweet</a>
+    <% end %>
   </div>
 </header>

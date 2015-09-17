@@ -9,34 +9,40 @@
 
     <title>Stylish Portfolio - Start Bootstrap Theme</title>
 
-    <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
     <link href="/css/stylish-portfolio.css" rel="stylesheet">
 
     <link href="/css/stylesheet.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-<div>
-    <% if session[:user_id] %>
-        <form method="post" action="/">
-            <div>
-                <input class="btn btn-primary" type="submit" value="Sign Out">
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="/">BufferClone</a>
+        <div class="collapse navbar-collapse">
+            <div class="nav navbar-nav navbar-right"
+                <% if session[:user_id] %>
+                    <form method="post" action="/">
+                        <div>
+                            <input class="btn btn-default" type="submit" value="Sign Out">
+                        </div>
+                    </form>
+                <% else %>
+                    <form method="get" action="/oauth/request_token">
+                        <div>
+                            <input class="btn btn-default" type="submit" value="Sign In">
+                        </div>
+                    </form>
+                <% end %> 
             </div>
-        </form>
-    <% else %>
-        <form method="get" action="/oauth/request_token">
-            <div>
-                <input class="btn btn-primary" type="submit" value="Sign In">
-            </div>
-        </form>
-    <% end %>      
-</div>
+        </div>     
+    </div>
+    </nav>
+
   <%= yield %>
 
     <!-- jQuery -->
@@ -75,6 +81,7 @@
             }
         });
     });
+
     </script>
 </body>
 </html>
