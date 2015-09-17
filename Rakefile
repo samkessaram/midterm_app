@@ -56,15 +56,15 @@ end
 
 
 task :check_db
-  Tweet.where(post_time:10.minute.ago..Time.now).each do |update|
+  Tweet.where(post_time:10.minute.ago..Time.now).each do |status|
 
-    @user = User.find(update.user_id)
+    @user = User.find(status.user_id)
       client = Twitter.configure do |config|
         config.consumer_key = @@CONSUMER_KEY
         config.consumer_secret = @@CONSUMER_SECRET
         config.oauth_token = @user.token
         config.oauth_token_secret = @user.secret
 
-    client.update(update.tweet)
+    client.update(status.tweet)
   end
 end
