@@ -56,7 +56,7 @@ end
 
 get '/tweets' do
   erb :'tweets/index'
-  # binding.pry
+  binding.pry
 end
 
 post '/tweets/index' do
