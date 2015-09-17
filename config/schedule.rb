@@ -1,4 +1,3 @@
-# set :output, ""
-# every 15.minutes do
-#   rake ""
-# end
+every 10.minutes do
+  rake "db:check"
+end
