@@ -3,10 +3,21 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background: url(../img/bg.jpg) no-repeat center center scroll;
+    background: url(http://3.bp.blogspot.com/_9CRy4x72Gkk/TOMR3CDZtCI/AAAAAAAABlU/i4BGPRdBiV4/s1600/fail%2Bwhale%2Bwallpaper.jpg) no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 }
 
+.header h1 {
+  color:#4E4E4E;
+}
+
+.signin {
+  margin-top: 8px;
+}
+
+.navbar {
+  margin-bottom: -10px;
+}

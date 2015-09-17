@@ -28,13 +28,13 @@
                 <% if session[:user_id] %>
                     <form method="post" action="/">
                         <div>
-                            <input class="btn btn-default" type="submit" value="Sign Out">
+                            <input class="btn btn-default signin" type="submit" value="Sign Out">
                         </div>
                     </form>
                 <% else %>
                     <form method="get" action="/oauth/request_token">
                         <div>
-                            <input class="btn btn-default" type="submit" value="Sign In">
+                            <input class="btn btn-default signin" type="submit" value="Sign In">
                         </div>
                     </form>
                 <% end %> 
