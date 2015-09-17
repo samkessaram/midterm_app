@@ -54,6 +54,10 @@ get '/oauth/callback' do
   end
 end
 
+get '/tweets' do
+  erb :'tweets/index'
+end
+
 
 
 
