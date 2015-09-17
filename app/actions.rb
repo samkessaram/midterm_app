@@ -7,8 +7,6 @@ get '/login' do
   erb :'user/login'
 end
 
-enable :sessions
-
 get '/oauth/request_token' do
   consumer = OAuth::Consumer.new @@CONSUMER_KEY, @@CONSUMER_SECRET, :site => 'https://api.twitter.com'
 
@@ -44,10 +42,10 @@ get '/oauth/callback' do
     secret: access_token.secret
     )
 
-    if @user.save
-      session[:user_id] = @user.id
-      redirect '/tweets'
-    else
-      redirect '/'
-    end
+  if @user.save
+    session[:user_id] = @user.id
+    redirect '/tweets'
+  else
+    redirect '/'
+  end
 end
