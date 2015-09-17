@@ -1,4 +1,4 @@
-# set :output, ""
-# every 15.minutes do
-#   rake ""
-# end
+set :output, "#{path}/log/cron.log"
+every 15.minutes do
+  rake "db:check"
+end

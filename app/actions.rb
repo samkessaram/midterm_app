@@ -58,7 +58,14 @@ get '/tweets' do
   erb :'tweets/index'
 end
 
+
+
 post '/tweets/index' do
+  if session[:user_id] == nil
+    session[:error] = true
+    redirect '/'
+  end
+
   format = "%d/%m %H:%M"
   date_time = params[:day] + "/" + params[:month] + " " + params[:hour] + ":" + params[:minute]
   date = DateTime.strptime(date_time, format)
@@ -67,18 +74,18 @@ post '/tweets/index' do
     tweet: params[:tweet],
     post_time: date
     )
-  # @user = User.find(session[:user_id])
-  # client = Twitter.configure do |config|
-  #   config.consumer_key = @@CONSUMER_KEY
-  #   config.consumer_secret = @@CONSUMER_SECRET
-  #   config.oauth_token = @user.token
-  #   config.oauth_token_secret = @user.secret
-  # end
-  # client.update("#{params[:tweet]}")
   redirect '/tweets'
 end
 
-post '/' do
+post '/logout' do
   session[:user_id] = nil
   erb :index
 end
+
+get '/tweets/all' do
+  erb :'tweets/all'
+end
+
+
+
+

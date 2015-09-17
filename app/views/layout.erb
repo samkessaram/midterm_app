@@ -24,9 +24,9 @@
     <div class="container-fluid">
     <a class="navbar-brand" href="/">BufferClone</a>
         <div class="collapse navbar-collapse">
-            <div class="nav navbar-nav navbar-right"
+            <div class="nav navbar-nav navbar-right">
                 <% if session[:user_id] %>
-                    <form method="post" action="/">
+                    <form method="post" action="/logout">
                         <div>
                             <input class="btn btn-default signin" type="submit" value="Sign Out">
                         </div>

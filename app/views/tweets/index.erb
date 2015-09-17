@@ -1,8 +1,15 @@
+<% if session[:error] %>
+  <div class="error">
+    <p><strong>Please log in to post a Tweet.</strong></p>
+  </div>
+  <% session[:error]=false %>
+<% end %>
+
 </br>
 <form method="post" action='/tweets/index'>
   <div>
     <label>Tweet:</label>
-    <input type="text" name="tweet" placeholder="Your tweet here">
+    <input type="text" name="tweet" placeholder="eg. 'Hello world!'" maxlength="140">
      <li id="schedule-c3" class="active">
     <form>
       <p>Post at <span class="timescount">this</span> <strong class="name">Time</strong> : </p>
