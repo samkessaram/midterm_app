@@ -10,6 +10,7 @@ gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
 gem 'oauth', '~> 0.4.7'
 gem 'twitter', '~> 4.5.0'
+gem 'whenever', :require => false
 
 gem 'puma'
 gem 'tux'
