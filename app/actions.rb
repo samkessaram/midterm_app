@@ -57,3 +57,29 @@ end
 get '/tweets' do
   erb :'tweets/index'
 end
+
+post '/tweets/index' do
+  @tweet = Tweet.create(
+    user_id: session[:user_id],
+    tweet: params[:tweet]
+    )
+  @user = User.find(session[:user_id])
+  client = Twitter.configure do |config|
+    config.consumer_key = @@CONSUMER_KEY
+    config.consumer_secret = @@CONSUMER_SECRET
+    config.oauth_token = @user.token
+    config.oauth_token_secret = @user.secret
+  end
+  client.update("#{params[:tweet]}")
+  redirect '/tweets'
+end
+
+
+post '/vote' do
+  @vote = Vote.create(
+    track_id: params[:track_id],
+    user_id: session[:user_id],
+    vote_count: 1
+    )
+  redirect '/tracks'
+end
