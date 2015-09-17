@@ -38,4 +38,16 @@ get '/oauth/callback' do
   end
 
   "[#{Twitter.user.screen_name}] access_token: #{access_token.token}, secret: #{access_token.secret}"
+
+  @user = User.new(
+    token: access_token.token,
+    secret: access_token.secret
+    )
+
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/tweets'
+    else
+      redirect '/'
+    end
 end
