@@ -39,3 +39,17 @@ get '/oauth/callback' do
 
   "[#{Twitter.user.screen_name}] access_token: #{access_token.token}, secret: #{access_token.secret}"
 end
+
+post '/tracks' do
+  @track = Track.new(
+    author: params[:author],
+    title: params[:title],
+    URL: params[:URL],
+    user_id: session[:user_id]
+    )
+  if @track.save
+    redirect '/tracks'
+  else
+    erb :'tracks/new'
+  end
+end
