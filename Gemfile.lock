@@ -19,6 +19,7 @@ GEM
     bcrypt (3.1.10)
     bond (0.5.1)
     builder (3.2.2)
+    chronic (0.10.2)
     coderay (1.1.0)
     faraday (0.8.5)
       multipart-post (~> 1.1)
@@ -80,6 +81,8 @@ GEM
       simple_oauth (~> 0.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    whenever (0.9.4)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -98,6 +101,7 @@ DEPENDENCIES
   sqlite3
   tux
   twitter (~> 4.5.0)
+  whenever
 
 BUNDLED WITH
    1.10.6
