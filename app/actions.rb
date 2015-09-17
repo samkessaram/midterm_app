@@ -61,22 +61,20 @@ end
 post '/tweets/index' do
   format = "%d/%m %H:%M"
   date_time = params[:day] + "/" + params[:month] + " " + params[:hour] + ":" + params[:minute]
-  binding.pry
   date = DateTime.strptime(date_time, format)
-  binding.pry
   @tweet = Tweet.create(
     user_id: session[:user_id],
     tweet: params[:tweet],
     post_time: date
     )
-  @user = User.find(session[:user_id])
-  client = Twitter.configure do |config|
-    config.consumer_key = @@CONSUMER_KEY
-    config.consumer_secret = @@CONSUMER_SECRET
-    config.oauth_token = @user.token
-    config.oauth_token_secret = @user.secret
-  end
-  client.update("#{params[:tweet]}")
+  # @user = User.find(session[:user_id])
+  # client = Twitter.configure do |config|
+  #   config.consumer_key = @@CONSUMER_KEY
+  #   config.consumer_secret = @@CONSUMER_SECRET
+  #   config.oauth_token = @user.token
+  #   config.oauth_token_secret = @user.secret
+  # end
+  # client.update("#{params[:tweet]}")
   redirect '/tweets'
 end
 
