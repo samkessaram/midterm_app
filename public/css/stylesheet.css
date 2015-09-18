@@ -11,11 +11,13 @@
 }
 
 .header h1 {
-  color:#4E4E4E;
+  color:white;
+  text-shadow: 3px 3px #4E4E4E
 }
 
 .signin {
   margin-top: 8px;
+  margin-right: 8px;
 }
 
 .navbar {
@@ -30,4 +32,12 @@ li {
 .error {
   margin-top: 30px;
   margin-left: 30px;
+}
+
+.queue {
+  margin-top: 60px;
+}
+
+.jambajuice {
+  margin-top: 30px;
 }
