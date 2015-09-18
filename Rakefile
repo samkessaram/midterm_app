@@ -59,7 +59,7 @@ end
 task 'db:check' do
   time = Time.now
 
-  Tweet.where(post_time:1.year.ago.new_offset(Rational(-4,24))..time.to_datetime).each do |status|
+  Tweet.where(post_time:1.year.ago..time.to_datetime).each do |status|
     @user = User.find(status.user_id)
       client = Twitter.configure do |config|
         config.consumer_key = @@CONSUMER_KEY

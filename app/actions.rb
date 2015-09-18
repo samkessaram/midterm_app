@@ -55,7 +55,6 @@ get '/oauth/callback' do
 end
 
 get '/tweets' do
-  binding.pry
   erb :'tweets/index'
 end
 
