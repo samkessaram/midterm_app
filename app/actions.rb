@@ -61,7 +61,6 @@ end
 
 post '/tweets/index' do
   if session[:user_id] == nil
-    session[:error] = true
     redirect '/'
   end
 
@@ -94,5 +93,5 @@ post '/tweet/delete' do
   redirect "/tweets/all"
 end
 
-#AUGH
+
 
