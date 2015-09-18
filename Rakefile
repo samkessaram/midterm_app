@@ -67,7 +67,11 @@ task 'db:check' do
         config.oauth_token = @user.token
         config.oauth_token_secret = @user.secret
       end
-    client.update(status.tweet)
+    begin
+      client.update(status.tweet)
+      rescue Twitter::Error
+      status.destroy
+    end
     status.destroy
   end
 end

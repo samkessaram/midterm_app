@@ -73,7 +73,6 @@ post '/tweets/index' do
     tweet: params[:tweet],
     post_time: Chronic.parse(params[:timeof])
     )
-    binding.pry
   redirect '/tweets'
 end
 
