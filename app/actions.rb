@@ -73,6 +73,7 @@ post '/tweets/index' do
     )
 
   session[:error] = false
+  session[:post_time] = Chronic.parse(params[:timeof])
     redirect '/tweets'
 end
 
