@@ -1,3 +1,13 @@
+<% if session[:error]== false%>
+<p class="alert"> Tweet saved in your queue! </p>
+<% session[:error] = nil %>
+<% elsif session[:error] == true %>
+<p class="alert"> Please log in to schedule a tweet! </p>
+<% session[:error] = nil %>
+<% else %>
+<% session[:error] = nil %>
+<% end %>
+
 </br>
 <div class="container">
   <form method="post" action='/tweets/index'>

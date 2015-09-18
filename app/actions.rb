@@ -58,8 +58,6 @@ get '/tweets' do
   erb :'tweets/index'
 end
 
-
-
 post '/tweets/index' do
   if session[:user_id] == nil
     session[:error] = true
@@ -73,7 +71,9 @@ post '/tweets/index' do
     tweet: params[:tweet],
     post_time: Chronic.parse(params[:timeof])
     )
-  redirect '/tweets'
+
+  session[:error] = false
+    redirect '/tweets'
 end
 
 post '/logout' do
