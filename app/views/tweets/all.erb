@@ -1,8 +1,11 @@
-<div>
+<div class="queue">
   <h3>Tweet Queue</h3>
   <% list = Tweet.where(user_id: session[:user_id]) %>
   <% list.each do |tweet|%>
-      <p>Tweet:<%= tweet.tweet %></p>
+      <p>Tweet: "<%= tweet.tweet %>"</p>
       <p>Post time: <%= tweet.post_time%></p>
   <% end %>
 </div>
+
+
+
