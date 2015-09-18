@@ -65,15 +65,18 @@ post '/tweets/index' do
     redirect '/'
   end
 
-  @tweet = Tweet.create(
+  @tweet = Tweet.new(
     user_id: session[:user_id],
     tweet: params[:tweet],
     post_time: Chronic.parse(params[:timeof])
     )
-  session[:error] = false
-  session[:post_time] = Chronic.parse(params[:timeof]).strftime('%H:%M %d %b %Y')
-
-  redirect '/tweets'
+  if @tweet.save
+    redirect '/tweets'
+  else
+    erb  :'/tweets/index'
+  end
+  # session[:error] = false
+  # session[:post_time] = Chronic.parse(params[:timeof]).strftime('%H:%M %d %b %Y')
 end
 
 post '/logout' do

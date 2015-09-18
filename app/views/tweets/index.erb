@@ -7,7 +7,7 @@
 
 <% if @tweet && @tweet.errors.any? %>
   <div>
-    <strong>Some issues with your track, please fix them:</strong>
+    <strong>Some issues with your tweet, please fix them:</strong>
     <ul>
       <% @tweet.errors.full_messages.each do |message| %>
         <li><%= message %></li>
