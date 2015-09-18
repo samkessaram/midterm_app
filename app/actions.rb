@@ -65,14 +65,13 @@ post '/tweets/index' do
     session[:error] = true
     redirect '/'
   end
-
-  format = "%d/%m %H:%M"
-  date_time = params[:day] + "/" + params[:month] + " " + params[:hour] + ":" + params[:minute]
-  date = DateTime.strptime(date_time, format)
+  # format = "%d/%m %H:%M"
+  # date_time = params[:day] + "/" + params[:month] + " " + params[:hour] + ":" + params[:minute]
+  # date = DateTime.strptime(date_time, format)
   @tweet = Tweet.create(
     user_id: session[:user_id],
     tweet: params[:tweet],
-    post_time: date
+    post_time: Chronic.parse(params[:timeof])
     )
   redirect '/tweets'
 end
