@@ -86,6 +86,10 @@ get '/tweets/all' do
   erb :'tweets/all'
 end
 
-
+post '/tweet/delete' do
+  @tweet = Tweet.find(params[:tweet_id])
+  @tweet.destroy!
+  redirect "/tweets/all"
+end
 
 
