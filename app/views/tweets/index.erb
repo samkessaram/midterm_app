@@ -15,20 +15,23 @@
 
 <div class="tweet-page">
   <form method="post" action='/tweets/index'>
-    <div>
-    <input class="form-control" type="text" name="tweet" placeholder="Compose your tweet here!" maxlength="140">
-    <input class="form-control" type="text" name="timeof" placeholder="Tommorow" maxlength="140">
+    <div class="container">
+    <div class="container"><input class="form-control width-600" type="text" name="tweet" placeholder="Compose your tweet here!" maxlength="140"></div>
+    <div class="container"><input class="form-control width-600" type="text" name="timeof" placeholder="eg. 'Tomorrow at noon', '12 hours from now', 'December 12 9pm'" maxlength="140"></div>
 
-    <input class="btn btn-lg btn-default" type="submit" value"tweet!">
+    <input class="btn btn-lg btn-default centerblk" type="submit" value"tweet!">
     </div>
   </form>
+<!--   <form action="/tweets/all" class="center">
+    <input class="btn btn-lg btn-primary" type="submit" value="Show My Tweets!">
+  </form> -->
+  <div class="container">
+    <button type="button" class="btn btn-lg btn-default centerblk">Queue</button>
+  </div>
+
 </div>
 
-<div class="tweet-page">
-  <form action="/tweets/all">
-    <input class="btn btn-lg btn-primary" type="submit" value="Show My Tweets!">
-  </form>
-</div>
+
 
 
 <!-- <li id="schedule-c3" class="active">
