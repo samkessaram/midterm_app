@@ -19,6 +19,9 @@ APP_NAME = APP_ROOT.basename.to_s
 
 # Sinatra configuration
 configure do
+
+  # ActiveRecord::Base.default_timezone = 'Eastern Time (US & Canada)'
+
   set :root, APP_ROOT.to_path
   set :server, :puma
 

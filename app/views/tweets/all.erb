@@ -1,4 +1,4 @@
-<div>
+<div class="queue">
   <h3>Tweet Queue</h3>
   <% list = Tweet.where(user_id: session[:user_id]) %>
   <% list.each do |tweet|%>
@@ -12,4 +12,5 @@
   </form>
   <% end %>
 </div>
+
 

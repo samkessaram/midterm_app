@@ -4,6 +4,28 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+
+$('#myTabs a[href="#profile"]').tab('show') // Select tab by name
+$('#myTabs a:first').tab('show') // Select first tab
+$('#myTabs a:last').tab('show') // Select last tab
+$('#myTabs li:eq(2) a').tab('show')
+
+
+$('#queue a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+
+$('#new a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+
+$('#calendar a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+
 if (typeof jQuery === 'undefined') {
   throw new Error('Bootstrap\'s JavaScript requires jQuery')
 }
