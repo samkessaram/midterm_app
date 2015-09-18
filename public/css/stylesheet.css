@@ -38,6 +38,21 @@ li {
   margin-top: 60px;
 }
 
-.jambajuice {
-  margin-top: 30px;
+.container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.tweet-page {
+  margin-bottom: 20px;
+  height: 50px;
+}
+
+.width-600 {
+  width: 600px;
+  display: inline-block;
+}
+
+.centerblk {
+  display: inline-block;
 }
