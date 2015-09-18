@@ -58,6 +58,12 @@ get '/tweets' do
   erb :'tweets/index'
 end
 
+# get '/tweets/calendar' do
+#   @tweets = Tweet.all
+#   @tweets_by_date = @tweets.group_by(&:post_time)
+#   erb :'tweets/calendar'
+# end
+
 
 
 post '/tweets/index' do
@@ -68,12 +74,18 @@ post '/tweets/index' do
   # format = "%d/%m %H:%M"
   # date_time = params[:day] + "/" + params[:month] + " " + params[:hour] + ":" + params[:minute]
   # date = DateTime.strptime(date_time, format)
-  @tweet = Tweet.create(
+  @tweet = Tweet.new(
     user_id: session[:user_id],
     tweet: params[:tweet],
     post_time: Chronic.parse(params[:timeof])
     )
-  redirect '/tweets'
+
+  if @tweet.save
+    redirect "/tweets"
+  else
+    redirect "/tweets"
+  end
+
 end
 
 post '/logout' do

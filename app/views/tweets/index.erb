@@ -5,6 +5,20 @@
 <% session[:error]=false %>
 <% end %>
 
+<% if @tweet && @tweet.errors.any? %>
+  <div>
+    <strong>Some issues with your track, please fix them:</strong>
+    <ul>
+      <% @tweet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+
+
 </br>
 <div class="container">
   <form method="post" action='/tweets/index'>
@@ -41,6 +55,13 @@
     </form>
   </div>
 </div>
+
+<!-- <div>
+  <form action="/tweets/calendar">
+      <input class="btn btn-lg btn-primary" type="submit" value="Show My Calendar!">
+    </form>
+</div> -->
+
 
 
 
