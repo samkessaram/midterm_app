@@ -71,11 +71,11 @@ post '/tweets/index' do
     )
   if @tweet.save
     session[:error] = false
+    session[:post_time] = @tweet.post_time
     redirect '/tweets'
   else
     erb  :'/tweets/index'
   end
-  # session[:post_time] = Chronic.parse(params[:timeof]).strftime('%H:%M %d %b %Y')
 end
 
 post '/logout' do

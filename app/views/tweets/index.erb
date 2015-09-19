@@ -21,7 +21,7 @@
 
 <div class="tweet-page">
   <% if session[:error]== false%>
-    <p class="alert"> Tweet will be posted at <%= session[:post_time]%>! </p>
+    <p class="alert"> Tweet will be posted at <%= session[:post_time].strftime('%H:%M %d %b %Y')%>! </p> <!--  -->
   <% session[:error] = nil %>
   <% elsif session[:error] == true %>
     <p class="alert"> Please log in to schedule a tweet! </p>
