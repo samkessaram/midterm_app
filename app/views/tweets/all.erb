@@ -1,7 +1,7 @@
 <div class="container">
   <div class="queue">
     <h3>Your Scheduled Tweets</h3>
-    <% list = Tweet.where(user_id: session[:user_id]) %>
+    <% list = Tweet.where(user_id: session[:user_id]).order(:post_time) %>
     <% list.each do |tweet|%>
     <div class="tweet-in-queue">
         <div class="centerblk">
