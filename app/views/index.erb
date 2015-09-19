@@ -1,9 +1,11 @@
+
 <% if session[:error] %>
   <div class="error">
     <p><strong>Please log in to post a Tweet.</strong></p>
   </div>
-  <% session[:error]=false %>
+  <% session[:error]=nil %>
 <% end %>
+
 
 <header id="top" class="header">
   <div class="text-vertical-center">

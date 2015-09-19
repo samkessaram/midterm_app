@@ -1,26 +1,25 @@
 </br>
 <div class="container">
-
-<div class="tweet-page">
-  <% if session[:error]== false%>
-    <p class="alert"> Tweet will be posted at <%= session[:post_time].strftime('%H:%M %d %b %Y')%>! </p>
-  <% session[:error] = nil %>
-  <% elsif session[:error] == true %>
-    <p class="alert"> Please log in to schedule a tweet! </p>
+  <div class="tweet-page">
+    <% if session[:error]== false%>
+      <p class="alert"> Tweet will be posted at <%= session[:post_time].strftime('%H:%M %d %b %Y')%>! </p>
     <% session[:error] = nil %>
-  <% else %>
-    <% if @tweet && @tweet.errors.any? %>
-      <div>
-        <strong>Some issues with your tweet, please fix them:</strong>
-        <ul>
-          <% @tweet.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>  
-    <% session[:error] = nil %>
-  <% end %>
+    <% elsif session[:error] == true %>
+      <p class="alert"> Please log in to schedule a tweet! </p>
+      <% session[:error] = nil %>
+    <% else %>
+      <% if @tweet && @tweet.errors.any? %>
+        <div>
+          <strong>Some issues with your tweet, please fix them:</strong>
+          <ul>
+            <% @tweet.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>  
+      <% session[:error] = nil %>
+    <% end %>
 </div>
 
 <div class="tweet-page">
@@ -28,17 +27,15 @@
     <div class="container">
     <div class="container">
 
-    <input class="form-control width-600" type="text" name="tweet" placeholder="Compose your tweet here!" maxlength="140">
+    <input class="form-control tweet-box" type="text" name="tweet" placeholder="Compose your tweet here!" maxlength="140">
 
     </div>
-    <div class="container"><input class="form-control width-600" type="text" name="timeof" placeholder="eg. 'Tomorrow at noon', '12 hours from now', 'December 12 9pm'" maxlength="140"></div>
+    <div class="container"><input class="form-control chronic-box" type="text" name="timeof" placeholder="eg. 'Tomorrow at noon', '12 hours from now', 'December 12 9pm'" maxlength="140"></div>
 
     <input class="btn btn-lg btn-default centerblk" type="submit" value"tweet!">
     </div>
   </form>
-<!--   <form action="/tweets/all" class="center">
-    <input class="btn btn-lg btn-primary" type="submit" value="Show My Tweets!">
-  </form> -->
+
   <div class="container">
     <button type="button" class="btn btn-lg btn-default centerblk"><a href="tweets/all">Queue</a></button>
   </div>

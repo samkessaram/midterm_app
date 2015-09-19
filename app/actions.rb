@@ -40,6 +40,7 @@ get '/oauth/callback' do
   if User.exists?(token:access_token.token)
     @user = User.where(token:access_token.token)[0]
     session[:user_id] = @user.id
+    session[:error] = nil
     redirect '/tweets'
   else
     @user = User.new(
