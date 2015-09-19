@@ -4,7 +4,7 @@
     <div class="tweet-box">
       <div class="post-error">
         <% if session[:error]== false%>
-          <p class="alert"> Tweet will be posted at <%= session[:post_time].strftime('%H:%M %d %b %Y')%>! </p>
+          <p class="alert"> Your tweet will go live at <%= session[:post_time].strftime('%H:%M on %b %d, %Y')%>! </p>
         <% session[:error] = nil %>
         <% elsif session[:error] == true %>
           <p class="alert"> Please log in to schedule a tweet! </p>
@@ -12,7 +12,7 @@
         <% else %>
           <% if @tweet && @tweet.errors.any? %>
             <div>
-              <strong>Some issues with your tweet, please fix them:</strong>
+              <strong>There were some issues with your tweet, please fix them:</strong>
               <ul>
               <% @tweet.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
@@ -29,14 +29,20 @@
 <div class="tweet-page">
   <form method="post" action='/tweets'>
     <div class="container">
-    <div class="container">
+      <div>
+        <h3>Add a Tweet!</h3>
+      </div>
+      <div class="container">
+        <input class="form-control tweet-box" type="text" name="tweet" placeholder="Compose your tweet here!" maxlength="140">
+      </div>
 
-    <input class="form-control tweet-box" type="text" name="tweet" placeholder="Compose your tweet here!" maxlength="140">
-
-    </div>
-    <div class="container"><input class="form-control chronic-box" type="text" name="timeof" placeholder="eg. 'Tomorrow at noon', '12 hours from now', 'December 12 9pm'" maxlength="140"></div>
-
-    <input class="btn btn-lg btn-default centerblk" type="submit">
+      <div class="container">
+        <div>
+          <h4>When do you want to post it?</h4>
+        </div>
+        <input class="form-control chronic-box" type="text" name="timeof" placeholder="eg. 'Tomorrow at noon', '12 hours from now', 'December 12 9pm'" maxlength="140">
+      </div>
+      <input class="btn btn-lg btn-default centerblk" type="submit">
     </div>
   </form>
 
