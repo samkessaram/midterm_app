@@ -6,7 +6,7 @@ class Tweet < ActiveRecord::Base
     def check_for_duplicate_tweets
       if  Tweet.where(tweet: tweet) == []
       else
-        errors.add(:Tweet, "You have already uploaded this tweet")
+        errors.add(:Tweet, "can't be a duplicate!")
       end
     end
 end

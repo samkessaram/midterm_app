@@ -59,7 +59,7 @@ get '/tweets' do
 end
 
 
-post '/tweets/index' do
+post '/tweets' do
   if session[:user_id] == nil
     redirect '/'
   end

@@ -1,40 +1,36 @@
-<% if session[:error] %>
-<div class="error">
-  <p><strong>Please log in to post a Tweet.</strong></p>
-</div>
-<% session[:error]=false %>
-<% end %>
-
-<% if @tweet && @tweet.errors.any? %>
-  <div>
-    <strong>Some issues with your tweet, please fix them:</strong>
-    <ul>
-      <% @tweet.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
 </br>
 <div class="container">
 
 <div class="tweet-page">
   <% if session[:error]== false%>
-    <p class="alert"> Tweet will be posted at <%= session[:post_time].strftime('%H:%M %d %b %Y')%>! </p> <!--  -->
+    <p class="alert"> Tweet will be posted at <%= session[:post_time].strftime('%H:%M %d %b %Y')%>! </p>
   <% session[:error] = nil %>
   <% elsif session[:error] == true %>
     <p class="alert"> Please log in to schedule a tweet! </p>
     <% session[:error] = nil %>
   <% else %>
+    <% if @tweet && @tweet.errors.any? %>
+      <div>
+        <strong>Some issues with your tweet, please fix them:</strong>
+        <ul>
+          <% @tweet.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>  
     <% session[:error] = nil %>
   <% end %>
 </div>
 
 <div class="tweet-page">
-  <form method="post" action='/tweets/index'>
+  <form method="post" action='/tweets'>
     <div class="container">
-    <div class="container"><input class="form-control width-600" type="text" name="tweet" placeholder="Compose your tweet here!" maxlength="140"></div>
+    <div class="container">
+
+    <input class="form-control width-600" type="text" name="tweet" placeholder="Compose your tweet here!" maxlength="140">
+
+    </div>
     <div class="container"><input class="form-control width-600" type="text" name="timeof" placeholder="eg. 'Tomorrow at noon', '12 hours from now', 'December 12 9pm'" maxlength="140"></div>
 
     <input class="btn btn-lg btn-default centerblk" type="submit" value"tweet!">
