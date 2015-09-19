@@ -61,6 +61,7 @@ end
 
 post '/tweets' do
   if session[:user_id] == nil
+    session[:error] = true
     redirect '/'
   end
 
