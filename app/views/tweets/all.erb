@@ -3,7 +3,7 @@
   <% list = Tweet.where(user_id: session[:user_id]) %>
   <% list.each do |tweet|%>
   <p>Tweet:<%= tweet.tweet %></p>
-  <p>Post time: <%= tweet.post_time%></p>
+  <p>Post time: <%= tweet.post_time.in_time_zone.strftime('%H:%M %d %b %Y')%></p>
   <form method='post' action='/tweet/delete'>
     <div>
     <input type="hidden" name = 'tweet_id' value="<%=tweet.id%>">
