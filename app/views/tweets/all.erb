@@ -1,6 +1,6 @@
 <div class="container">
   <div class="queue">
-    <h3>Upcoming Tweets</h3>
+    <h3>Your Scheduled Tweets</h3>
     <% list = Tweet.where(user_id: session[:user_id]) %>
     <% list.each do |tweet|%>
     <div class="tweet-in-queue">
@@ -11,7 +11,7 @@
         <form method='post' action='/tweet/delete' class="delete-btn centerblk">
           <div>
             <input type="hidden" name = 'tweet_id' value="<%=tweet.id%>">
-            <input class="btn btn-default" type="submit" value="Delete">
+            <button class="btn btn-default btn-borderless" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
           </div>
         </form>
     </div>
