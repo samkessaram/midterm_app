@@ -4,14 +4,16 @@
     <div class="tweet-box">
       <div class="post-error">
         <% if session[:error]== false%>
+        <div class="alert alert-success" role="alert">
           <p class="alert"> Your tweet will go live at <%= session[:post_time].strftime('%H:%M on %b %d, %Y')%>! </p>
         <% session[:error] = nil %>
+        </div>
         <% elsif session[:error] == true %>
           <p class="alert"> Please log in to schedule a tweet! </p>
           <% session[:error] = nil %>
         <% else %>
           <% if @tweet && @tweet.errors.any? %>
-            <div>
+            <div class="alert alert-danger" role="alert">
               <strong>There were some issues with your tweet, please fix them:</strong>
               <ul>
               <% @tweet.errors.full_messages.each do |message| %>
@@ -19,7 +21,7 @@
               <% end %>
               </ul>
             </div>
-          <% end %>  
+          <% end %>
           <% session[:error] = nil %>
         <% end %>
       </div>
