@@ -67,7 +67,7 @@ p,
 .tweet-page {
   margin-bottom: 20px;
   height: 50px;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .chronic-box {
@@ -133,4 +133,8 @@ a {
 
 .past-tweet p {
   float: right;
+}
+
+.alert {
+  width: 600px;
 }
