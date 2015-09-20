@@ -103,7 +103,7 @@ get '/timeline' do
       config.oauth_token_secret = @user.secret
     end
 
-  @timeline = client.user_timeline(options = {count:10})
+  @timeline = client.user_timeline(options = {count:5})
 
   erb :'tweets/timeline'
 
