@@ -1,12 +1,3 @@
-
-<% if session[:error] %>
-  <div class="error">
-    <p><strong>Please log in to post a Tweet.</strong></p>
-  </div>
-  <% session[:error]=nil %>
-<% end %>
-
-
 <header id="top" class="header">
   <div class="text-vertical-center">
     <h1>BufferClone</h1>
@@ -18,6 +9,14 @@
       <h3>Schedule your Tweets</h3>
       <br>
       <a href="/tweets" class="btn btn-dark btn-lg">Add a Tweet</a>
+    <% end %>
+    <% if session[:error] %>
+      <div class="container">
+        <div class="login-error">
+          <h3>Please log in to post a Tweet.</h3>
+        </div>
+        <% session[:error]=nil %>
+      </div>
     <% end %>
   </div>
 </header>

@@ -89,10 +89,24 @@ get '/tweets/all' do
   erb :'tweets/all'
 end
 
-post '/tweet/delete' do
-  @tweet = Tweet.find(params[:tweet_id])
-  @tweet.destroy!
-  redirect "/tweets/all"
+post '/tweets/all' do
+Tweet.find(params[:tweet_id]).destroy!
+  erb :'tweets/all'
+end
+
+get '/timeline' do
+  @user = User.find(session[:user_id])
+    client = Twitter.configure do |config|
+      config.consumer_key = @@CONSUMER_KEY
+      config.consumer_secret = @@CONSUMER_SECRET
+      config.oauth_token = @user.token
+      config.oauth_token_secret = @user.secret
+    end
+
+  @timeline = client.user_timeline(options = {count:10})
+
+  erb :'tweets/timeline'
+
 end
 
 

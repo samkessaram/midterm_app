@@ -8,7 +8,7 @@
           <p class="preview">"<%= tweet.tweet %>"</p>
           <p><%= tweet.post_time.in_time_zone.strftime('%H:%M %d %b %Y')%></p>
         </div>
-        <form method='post' action='/tweet/delete' class="delete-btn centerblk">
+        <form method='post' action='/tweets/all' class="delete-btn centerblk">
           <div>
             <input type="hidden" name = 'tweet_id' value="<%=tweet.id%>">
             <button class="btn btn-default btn-borderless" type="submit"><span class="glyphicon glyphicon-trash"></span></button>

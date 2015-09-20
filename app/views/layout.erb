@@ -59,7 +59,6 @@
 
     </script>
 
-
 </head>
 
 <body>
@@ -81,6 +80,30 @@
                         </div>
                     </form>
                 <% end %> 
+            </div>
+
+            <div class="nav navbar-nav navbar-right">
+                <form method="get" action="/tweets">
+                    <div>
+                        <input class="btn btn-default signin" type="submit" value="Add Tweet">
+                    </div>
+                </form>
+            </div>
+
+            <div class="nav navbar-nav navbar-right">
+                <form method="get" action="/tweets/all">
+                    <div>
+                        <input class="btn btn-default signin" type="submit" value="Your Tweets">
+                    </div>
+                </form>
+            </div>
+
+            <div class="nav navbar-nav navbar-right">
+                <form method="get" action="/timeline">
+                    <div>
+                        <input class="btn btn-default signin" type="submit" value="Timeline">
+                    </div>
+                </form>
             </div>
         </div>     
     </div>

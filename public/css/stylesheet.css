@@ -45,11 +45,12 @@ p,
 
 }
 
-.error {
+.login-error {
+  width: 400px;
   margin-top: 30px;
   margin-left: 30px;
   display: inline-block;
-  text-align: left;
+  text-align: center;
 
 }
 
@@ -107,11 +108,29 @@ a {
 }
 
 .post-error {
-    text-align: left;
-    padding-left: 30px;
-    margin-top: 10px;
+  text-align: left;
+  padding-left: 30px;
+  margin-top: 10px;
 }
 
 .preview {
   font-size: 18px;
+}
+
+.timeline {
+  margin-top: 150px;
+  text-align: center;
+}
+
+.past-tweet {
+  display: inline-block;
+  margin-bottom: 14px;
+  width:600px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #CAC6C6;
+  text-align: left;
+}
+
+.past-tweet p {
+  float: right;
 }
