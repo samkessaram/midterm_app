@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="timeline">
+      <% @timeline.each do |tweet| %>
+        <div class="past-tweet">
+          <h3><%= tweet.text %></h3>
+          <h4>at <%= tweet.created_at.in_time_zone.strftime('%H:%M %d %b %Y') %></h4>
+        </div>
+      <% end %>
+  </div>
+</div>

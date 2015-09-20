@@ -116,3 +116,11 @@ a {
 .preview {
   font-size: 18px;
 }
+
+.timeline {
+  margin-top: 150px;
+}
+
+.past-tweet {
+  margin-bottom: 90px;
+}
