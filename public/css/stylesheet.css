@@ -108,9 +108,9 @@ a {
 }
 
 .post-error {
-    text-align: left;
-    padding-left: 30px;
-    margin-top: 10px;
+  text-align: left;
+  padding-left: 30px;
+  margin-top: 10px;
 }
 
 .preview {
@@ -119,8 +119,18 @@ a {
 
 .timeline {
   margin-top: 150px;
+  text-align: center;
 }
 
 .past-tweet {
-  margin-bottom: 90px;
+  display: inline-block;
+  margin-bottom: 14px;
+  width:600px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #CAC6C6;
+  text-align: left;
+}
+
+.past-tweet p {
+  float: right;
 }
