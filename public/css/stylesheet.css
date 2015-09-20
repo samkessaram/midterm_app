@@ -45,11 +45,12 @@ p,
 
 }
 
-.error {
+.login-error {
+  width: 400px;
   margin-top: 30px;
   margin-left: 30px;
   display: inline-block;
-  text-align: left;
+  text-align: center;
 
 }
 
