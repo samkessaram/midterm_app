@@ -100,9 +100,6 @@ Tweet.find(params[:tweet_id]).destroy!
 end
 
 get '/timeline' do
-
-  @timeline = client.user_timeline(options = {count:5})
-  erb :'tweets/timeline'
   if session[:user_id] == nil
     redirect '/'
   else
