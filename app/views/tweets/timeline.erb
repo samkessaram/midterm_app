@@ -1,9 +1,10 @@
 <%= erb :'sidebar' %>
 <div class="container">
   <div class="timeline">
+    <h3>Your Most Recent Tweets!</h3>
       <% @timeline.each do |tweet| %>
         <div class="past-tweet">
-          <h3><%= tweet.text %></h3>
+          <h4><%= tweet.text %></h4>
           <p><%= tweet.created_at.in_time_zone.strftime('%H:%M %d %b %Y') %></p>
         </div>
       <% end %>

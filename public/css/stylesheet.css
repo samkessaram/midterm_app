@@ -18,6 +18,10 @@ p,
   font-family: 'Lato', sans-serif;
 }
 
+.navbar-default .navbar-brand {
+  color: #2c3e50;
+}
+
 .header {
     display: table;
     position: relative;
@@ -170,11 +174,15 @@ a {
 
 .profile-img {
   border-radius: 50%;
-  border: 4px solid white;
+  border: 4px solid #e74c3c;
   margin-bottom: 10px;
 }
 
 .handle {
-  color: white;
+  color: #e74c3c;
   margin-bottom: 100px;
+}
+
+.timeline h3 {
+  margin-bottom: 30px;
 }
