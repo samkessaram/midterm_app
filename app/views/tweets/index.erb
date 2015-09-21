@@ -13,7 +13,17 @@
           <p class="alert"> Please log in to schedule a tweet! </p>
           <% session[:error] = nil %>
         <% else %>
-          else statment
+          <% if @tweet.errors.any? %>
+            <div class="alert alert-danger" role="alert">
+              <strong>There were some issues with your tweet, please fix them:</strong>
+              <ul>
+              <% @tweet.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <% session[:error] = nil %>
         <% end %>
       </div>
     </div>
