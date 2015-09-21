@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20150917203408) do
   create_table "tweets", force: :cascade do |t|
     t.string   "user_id"
     t.string   "tweet"
-    t.datetime "post_time" USING "UTC"
-    t.datetime "created_at" USING "UTC"
+    t.datetime "post_time"
+    t.datetime "created_at"
   end
 
   create_table "users", force: :cascade do |t|
