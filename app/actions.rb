@@ -113,8 +113,6 @@ get '/timeline' do
       end
 
     @timeline = client.user_timeline(options = {count:5})
-    binding.pry
-
     erb :'tweets/timeline'
   end
 
