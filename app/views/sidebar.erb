@@ -1,7 +1,7 @@
 <div class="sidebar">
 
 <div class="avatar">
-  <img src="<%= session[:avatar] %>" class="profile-img">
+  <a href="https://twitter.com/<%=session[:handle].gsub "@", ""%>"><img src="<%= session[:avatar] %>" class="profile-img"></a>
   <div class="handle"><%= session[:handle] %></div>
 </div>
 
