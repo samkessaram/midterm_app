@@ -78,7 +78,7 @@ post '/tweets' do
     session[:post_time] = @tweet.post_time
     redirect '/tweets'
   else
-    erb  :'/tweets/index'
+    redirect '/tweets'
   end
 end
 
