@@ -134,7 +134,6 @@ get '/analytics' do
     @tweet_words.each do |obj|
       tweet_arry << obj.text
     end
-    binding.pry
     joined_tweets = tweet_arry.join(' ')
     split_tweets = joined_tweets.split
     @word_count = Hash.new(0)
