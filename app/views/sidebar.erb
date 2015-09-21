@@ -1,0 +1,33 @@
+<div class="sidebar">
+
+<div class="avatar">
+  <img src="<%= session[:avatar] %>" class="profile-img">
+  <div class="handle"><%= session[:handle] %></div>
+</div>
+
+<div class="side-btn">
+  <form method="get" action="/tweets">
+      <div>
+          <input class="btn btn-default signin" type="submit" value="Add Tweet">
+      </div>
+  </form>
+</div>
+
+<div class="side-btn">
+  <form method="get" action="/tweets/all">
+    <div>
+        <input class="btn btn-default signin" type="submit" value="Upcoming Tweets">
+    </div>
+  </form>
+</div>
+
+<div class="side-btn">
+  <form method="get" action="/timeline">
+      <div>
+          <input class="btn btn-default signin" type="submit" value="Timeline">
+      </div>
+  </form>
+</div>
+
+</div>
+
