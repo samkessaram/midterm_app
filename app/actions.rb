@@ -101,8 +101,6 @@ end
 
 get '/timeline' do
 
-  @timeline = client.user_timeline(options = {count:5})
-  erb :'tweets/timeline'
   if session[:user_id] == nil
     redirect '/'
   else
@@ -115,6 +113,7 @@ get '/timeline' do
       end
 
     @timeline = client.user_timeline(options = {count:5})
+    binding.pry
 
     erb :'tweets/timeline'
   end
