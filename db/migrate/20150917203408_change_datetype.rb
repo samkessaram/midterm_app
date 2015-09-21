@@ -1,5 +1,6 @@
 class ChangeDatetype < ActiveRecord::Migration
   def change
-    change_column :tweets, :post_time, :timestamp
+    remove_column :tweets, :post_time
+    add_column :tweets, :post_time, :timestamp
   end
 end
