@@ -16,7 +16,7 @@ APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
 @@CONSUMER_KEY="RVUFX59IzYpwchFJ58bk6kSKK"
 @@CONSUMER_SECRET="sMSiCm3fNs16sbdmAQDW0kDjRkB9u6cIWx57WUNozBNdo8Tkr0"
-@@CALLBACK_URL="http:lvh.me:3000/oauth/callback"
+@@CALLBACK_URL="http://lvh.me:3000/oauth/callback"
 
 # Sinatra configuration
 configure do
