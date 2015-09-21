@@ -91,7 +91,6 @@ post '/logout' do
 end
 
 get '/tweets/all' do
-  binding.pry
   erb :'tweets/all'
 end
 
