@@ -104,9 +104,33 @@ get '/timeline' do
     end
 
   @timeline = client.user_timeline(options = {count:5})
-
   erb :'tweets/timeline'
 
+end
+
+get '/analytics' do
+  @user = User.find(session[:user_id])
+   client = Twitter.configure do |config|
+      config.consumer_key = @@CONSUMER_KEY
+      config.consumer_secret = @@CONSUMER_SECRET
+      config.oauth_token = @user.token
+      config.oauth_token_secret = @user.secret
+    end
+    @tweet_words = client.user_timeline(options = {count:20})
+    tweet_arry = []
+    @tweet_words.each do |obj|
+      tweet_arry << obj.text
+    end
+    binding.pry
+    joined_tweets = tweet_arry.join(' ')
+    split_tweets = joined_tweets.split
+    @word_count = Hash.new(0)
+
+    split_tweets.each do |word|
+      @word_count[word] += 1
+    end
+    @word_count = @word_count.sort_by {|k,v| v}.reverse
+    erb :'user/analytics'
 end
 
 
