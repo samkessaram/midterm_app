@@ -28,7 +28,7 @@ get '/oauth/callback' do
   request_token = OAuth::RequestToken.new consumer, session[:request_token], session[:request_token_secret]
   access_token = request_token.get_access_token :oauth_verifier => params[:oauth_verifier]
 
-  Twitter.configure do |config|
+  client = Twitter.configure do |config|
     config.consumer_key = @@CONSUMER_KEY
     config.consumer_secret = @@CONSUMER_SECRET
     config.oauth_token = access_token.token
@@ -36,6 +36,9 @@ get '/oauth/callback' do
   end
 
   "[#{Twitter.user.screen_name}] access_token: #{access_token.token}, secret: #{access_token.secret}"
+
+  session[:avatar] = client.user.profile_image_url.gsub 'normal','bigger'
+  session[:handle] = "@#{client.user.handle}"
 
   if User.exists?(token:access_token.token)
     @user = User.where(token:access_token.token)[0]
@@ -82,10 +85,13 @@ end
 
 post '/logout' do
   session[:user_id] = nil
+  session[:avatar] = "http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_bigger.png"
+  session[:handle] = " "
   erb :index
 end
 
 get '/tweets/all' do
+  binding.pry
   erb :'tweets/all'
 end
 
@@ -95,19 +101,25 @@ Tweet.find(params[:tweet_id]).destroy!
 end
 
 get '/timeline' do
-  @user = User.find(session[:user_id])
-    client = Twitter.configure do |config|
-      config.consumer_key = @@CONSUMER_KEY
-      config.consumer_secret = @@CONSUMER_SECRET
-      config.oauth_token = @user.token
-      config.oauth_token_secret = @user.secret
-    end
 
-  @timeline = client.user_timeline(options = {count:5})
+  if session[:user_id] == nil
+    redirect '/'
+  else
+    @user = User.find(session[:user_id])
+      client = Twitter.configure do |config|
+        config.consumer_key = @@CONSUMER_KEY
+        config.consumer_secret = @@CONSUMER_SECRET
+        config.oauth_token = @user.token
+        config.oauth_token_secret = @user.secret
+      end
 
-  erb :'tweets/timeline'
+    @timeline = client.user_timeline(options = {count:5})
+
+    erb :'tweets/timeline'
+  end
 
 end
+
 
 
 

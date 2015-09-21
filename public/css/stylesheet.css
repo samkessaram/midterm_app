@@ -1,3 +1,7 @@
+body {
+  min-width: 1000px;
+}
+
 h1,
 h2,
 h3,
@@ -55,24 +59,27 @@ p,
 }
 
 .queue {
-  margin-top: 60px;
+  margin-top: 150px;
   display: inline-block;
+}
+
+.queue > h3 {
+  margin-bottom: 50px;
 }
 
 .container {
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .tweet-page {
   margin-bottom: 20px;
   height: 50px;
-  margin-top: 50px;
 }
 
 .chronic-box {
   width: 600px;
   display: inline-block;
+  margin-bottom: 40px;
 }
 
 .tweet-box {
@@ -80,6 +87,7 @@ p,
   height: 100px;
   padding-bottom: 70px;
   display: inline-block;
+  margin-bottom: 40px;
 }
 
 .delete-btn {
@@ -109,8 +117,8 @@ a {
 
 .post-error {
   text-align: left;
-  padding-left: 30px;
-  margin-top: 10px;
+  padding-left: 16px;
+  margin-top: 55px;
 }
 
 .preview {
@@ -137,4 +145,36 @@ a {
 
 .alert {
   width: 600px;
+}
+
+.avatar {
+  margin-bottom: 100px;
+  display: inline;
+}
+
+.sidebar {
+  width: 200px;
+  height: 100%;
+  min-height: 960px;
+  background-color: brown;
+  float: left;
+  padding-top: 100px;
+  text-align: center;
+  position: fixed;
+}
+
+.side-btn {
+  margin-bottom: 70px;
+  display: inline-block;
+}
+
+.profile-img {
+  border-radius: 50%;
+  border: 4px solid white;
+  margin-bottom: 10px;
+}
+
+.handle {
+  color: white;
+  margin-bottom: 100px;
 }

@@ -1,21 +1,21 @@
-<div class="container">
-  <div class="queue">
-    <h3>Your Upcoming Tweets</h3>
-    <% list = Tweet.where(user_id: session[:user_id]).order(:post_time) %>
-    <% list.each do |tweet|%>
-    <div class="tweet-in-queue">
-        <div class="centerblk">
-          <p class="preview">"<%= tweet.tweet %>"</p>
-          <p><%= tweet.post_time.in_time_zone.strftime('%H:%M %d %b %Y')%></p>
-        </div>
-        <form method='post' action='/tweets/all' class="delete-btn centerblk">
-          <div>
-            <input type="hidden" name = 'tweet_id' value="<%=tweet.id%>">
-            <button class="btn btn-default btn-borderless" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+<%= erb :'sidebar' %>
+  <div class="container">
+    <div class="queue">
+      <h3>Your Upcoming Tweets</h3>
+      <% list = Tweet.where(user_id: session[:user_id]).order(:post_time) %>
+      <% list.each do |tweet|%>
+      <div class="tweet-in-queue">
+          <div class="centerblk">
+            <p class="preview">"<%= tweet.tweet %>"</p>
+            <p><%= tweet.post_time.in_time_zone.strftime('%H:%M %d %b %Y')%></p>
           </div>
-        </form>
+          <form method='post' action='/tweets/all' class="delete-btn centerblk">
+            <div>
+              <input type="hidden" name = 'tweet_id' value="<%=tweet.id%>">
+              <button class="btn btn-default btn-borderless" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+            </div>
+          </form>
+      </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
 </div>
-
