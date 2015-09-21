@@ -1,8 +1,8 @@
 class Tweet < ActiveRecord::Base
     validates :tweet, presence: true
-    validates :post_time, presence: true 
+    validates :post_time, presence: true
     validate :check_for_duplicate_tweets
-    validate :post_time_is_in_future
+    validate :post_time_is_in_future, if: :post_time
 
     def check_for_duplicate_tweets
       if  Tweet.where(tweet: tweet) == []
@@ -12,7 +12,6 @@ class Tweet < ActiveRecord::Base
     end
 
     def post_time_is_in_future
-
       if post_time > Time.now
       else
         errors.add(:Tweet, "must be in the future!")
