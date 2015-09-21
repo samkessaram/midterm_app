@@ -74,6 +74,7 @@ post '/tweets' do
     tweet: params[:tweet],
     post_time: Chronic.parse(params[:timeof])
     )
+
   if @tweet.save
     session[:error] = false
     session[:post_time] = @tweet.post_time
@@ -113,7 +114,6 @@ get '/timeline' do
       end
 
     @timeline = client.user_timeline(options = {count:5})
-    binding.pry
 
     erb :'tweets/timeline'
   end
