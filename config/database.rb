@@ -13,7 +13,6 @@ configure do
   else
     set :database, ENV['DATABASE_URL']
   end
-
   # Load all models from app/models, using autoload instead of require
   # See http://www.rubyinside.com/ruby-techniques-revealed-autoload-1652.html
   Dir[APP_ROOT.join('app', 'models', '*.rb')].each do |model_file|
