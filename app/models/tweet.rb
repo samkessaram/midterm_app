@@ -13,7 +13,7 @@ class Tweet < ActiveRecord::Base
 
     def post_time_is_in_future
 
-      if post_time > Time.now
+      if post_time && post_time > Time.now
       else
         errors.add(:Tweet, "must be in the future!")
       end
