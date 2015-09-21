@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150917203408) do
+ActiveRecord::Schema.define(version: 20150921221715) do
 
   create_table "tweets", force: :cascade do |t|
     t.string   "user_id"
     t.string   "tweet"
-    t.datetime "post_time"
     t.datetime "created_at"
+    t.datetime "post_time"
   end
 
   create_table "users", force: :cascade do |t|
