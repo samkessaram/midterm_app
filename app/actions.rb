@@ -35,20 +35,18 @@ get '/oauth/callback' do
     config.oauth_token_secret = access_token.secret
   end
 
-  "[#{Twitter.user.screen_name}] access_token: #{access_token.token}, secret: #{access_token.secret}"
-
   session[:avatar] = client.user.profile_image_url.gsub 'normal','bigger'
   session[:handle] = "@#{client.user.handle}"
 
   if User.exists?(token:access_token.token)
-    @user = User.where(token:access_token.token)[0]
+    @user = User.find_by(token:access_token.token)
     session[:user_id] = @user.id
     session[:error] = nil
     redirect '/tweets'
   else
     @user = User.new(
-    token: access_token.token,
-    secret: access_token.secret
+      token: access_token.token,
+      secret: access_token.secret
     )
     if @user.save
       session[:user_id] = @user.id
