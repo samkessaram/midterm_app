@@ -13,7 +13,6 @@ class Tweet < ActiveRecord::Base
 
     def post_time_is_in_future
       if post_time && post_time > Time.now
-        post_time = (post_time - (post_time.min * 60)) + ( post_time.min - (post_time.min % 10) + 10 ) * 60
       else
         errors.add(:Tweet, "must be in the future!")
       end

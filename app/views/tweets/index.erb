@@ -34,7 +34,8 @@
         <form method="post" action='/tweets'>
           <textarea class="form-control tweet-box" type="text" name="tweet" placeholder="Compose your tweet here!" maxlength="140"></textarea>
           <div><h4>When do you want to post it?</h4></div>
-          <input class="form-control chronic-box" type="text" name="timeof" placeholder="eg. 'Tomorrow at noon', '12 hours from now', 'December 12 9pm'" maxlength="140">
+          <small>Note: Tweets are posted every 10 minutes. So if you schedule a tweet for 5:31pm, it won't get posted until 5:40pm</small>
+          <input style="margin-top:10px" class="form-control chronic-box" type="text" name="timeof" placeholder="eg. 'Tomorrow at noon', '12 hours from now', 'December 12 9pm'" maxlength="140">
           <div><input class="btn btn-lg btn-default centerblk" type="submit"></div>
         </form>
       </div>

@@ -67,10 +67,14 @@ post '/tweets' do
     redirect '/'
   end
 
+  post_time = Chronic.parse(params[:timeof])
+
+  post_time = (post_time - (post_time.min * 60)) + ( post_time.min - (post_time.min % 10) + 10 ) * 60
+
   @tweet = Tweet.new(
     user_id: session[:user_id],
     tweet: params[:tweet],
-    post_time: Chronic.parse(params[:timeof])
+    post_time: post_time
     )
 
   if @tweet.save
