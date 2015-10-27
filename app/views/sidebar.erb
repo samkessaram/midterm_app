@@ -1,33 +1,47 @@
 <div class="sidebar">
 
-<div class="avatar">
-  <a href="https://twitter.com/<%=session[:handle].gsub "@", ""%>"><img src="<%= session[:avatar] %>" class="profile-img"></a>
-  <div class="handle"><%= session[:handle] %></div>
-</div>
+  <div class="avatar">
+    <a href="https://twitter.com/<%=session[:handle].gsub "@", ""%>"><img src="<%= session[:avatar] %>" class="profile-img"></a>
+    <div class="handle"><%= session[:handle] %></div>
+  </div>
 
-<div class="side-btn">
-  <form method="get" action="/tweets">
+  <div class="side-btn">
+<!--     <form method="get" action="/tweets">
+        <div>
+            <input class="btn btn-default signin" type="submit" value="Add Tweet">
+        </div>
+    </form> -->
+
+
+      <a href="/tweets">Tweets</a>
+
+  </div>
+
+  <div class="side-btn">
+<!--     <form method="get" action="/tweets/all">
       <div>
-          <input class="btn btn-default signin" type="submit" value="Add Tweet">
+          <input class="btn btn-default signin" type="submit" value="Upcoming Tweets">
       </div>
-  </form>
-</div>
+    </form> -->
 
-<div class="side-btn">
-  <form method="get" action="/tweets/all">
-    <div>
-        <input class="btn btn-default signin" type="submit" value="Upcoming Tweets">
-    </div>
-  </form>
-</div>
 
-<div class="side-btn">
-  <form method="get" action="/timeline">
-      <div>
-          <input class="btn btn-default signin" type="submit" value="Timeline">
-      </div>
-  </form>
-</div>
+      <a href="/tweets/all">Upcoming Tweets</a>
+
+
+  </div>
+
+  <div class="side-btn">
+<!--     <form method="get" action="/timeline">
+        <div>
+            <input class="btn btn-default signin" type="submit" value="Timeline">
+        </div>
+    </form> -->
+
+
+      <a href="/timeline">Timeline</a>
+
+
+  </div>
 
 </div>
 

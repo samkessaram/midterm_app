@@ -169,8 +169,18 @@ a {
 }
 
 .side-btn {
-  margin-bottom: 70px;
   display: inline-block;
+  color: #E75831;
+  width: 100%;
+  background-color: #2C3E50;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.side-btn:hover {
+  color: #2C3E50;
+  background-color: #E75831;
+
 }
 
 .profile-img {

@@ -20,6 +20,4 @@ configure do
     autoload ActiveSupport::Inflector.camelize(filename), model_file
   end
 
-  Time.zone = "UTC"
-
 end
