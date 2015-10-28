@@ -7,7 +7,7 @@
       <div class="tweet-in-queue">
           <div class="centerblk">
             <p class="preview">"<%= tweet.tweet %>"</p>
-            <p><%= tweet.post_time.strftime('%H:%M %d %b %Y')%></p>
+            <p><%= tweet.post_time.in_time_zone.strftime('%H:%M %d %b %Y')%></p>
           </div>
           <form method='post' action='/tweets/all' class="delete-btn centerblk">
             <div>
