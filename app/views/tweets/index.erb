@@ -10,7 +10,7 @@
         <% session[:error] = nil %>
         </div>
         <% elsif session[:error] == true %>
-          <p class="alert"> Please log in to schedule a tweet! </p>
+          <p class="alert"> Please check you are logged in and inputting the date in a clear format. </p>
           <% session[:error] = nil %>
         <% else %>
           <% if @tweet && @tweet.errors.any? %>
