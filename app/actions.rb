@@ -53,11 +53,11 @@ get '/oauth/callback' do
 end
 
 get '/tweets' do
-  erb :'tweets/index'
   if session[:user_id] == nil
     session[:error] = true
     redirect '/'
   end
+  erb :'tweets/index'
 end
 
 
@@ -137,7 +137,7 @@ get '/analytics' do
     session[:error] = true
     redirect '/'
   end
-  
+
   @user = User.find(session[:user_id])
    client = Twitter.configure do |config|
       config.consumer_key = @@CONSUMER_KEY
