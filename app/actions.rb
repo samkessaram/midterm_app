@@ -54,6 +54,10 @@ end
 
 get '/tweets' do
   erb :'tweets/index'
+  if session[:user_id] == nil
+    session[:error] = true
+    redirect '/'
+  end
 end
 
 
@@ -65,7 +69,11 @@ post '/tweets' do
 
   post_time = Chronic.parse(params[:timeof])
 
-  post_time = (post_time - (post_time.min * 60)) + ( post_time.min - (post_time.min % 10) + 10 ) * 60
+  if post_time.min % 10 != 0
+    post_time = (post_time - (post_time.min * 60)) + ( post_time.min - (post_time.min % 10) + 10 ) * 60
+  else
+    post_time
+  end
 
   @tweet = Tweet.new(
     user_id: session[:user_id],
@@ -90,6 +98,11 @@ post '/logout' do
 end
 
 get '/tweets/all' do
+  if session[:user_id] == nil
+    session[:error] = true
+    redirect '/'
+  end
+
   erb :'tweets/all'
 end
 
@@ -101,6 +114,7 @@ end
 get '/timeline' do
 
   if session[:user_id] == nil
+    session[:error] = true
     redirect '/'
   else
     @user = User.find(session[:user_id])
@@ -119,6 +133,11 @@ get '/timeline' do
 end
 
 get '/analytics' do
+  if session[:user_id] == nil
+    session[:error] = true
+    redirect '/'
+  end
+  
   @user = User.find(session[:user_id])
    client = Twitter.configure do |config|
       config.consumer_key = @@CONSUMER_KEY
