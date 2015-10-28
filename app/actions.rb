@@ -69,24 +69,29 @@ post '/tweets' do
 
   post_time = Chronic.parse(params[:timeof])
 
-  if post_time.min % 10 != 0
-    post_time = (post_time - (post_time.min * 60)) + ( post_time.min - (post_time.min % 10) + 10 ) * 60
+  if post_time
+    if post_time.min % 10 != 0
+      post_time = (post_time - (post_time.min * 60)) + ( post_time.min - (post_time.min % 10) + 10 ) * 60
+    else
+      post_time
+    end
+
+    @tweet = Tweet.new(
+      user_id: session[:user_id],
+      tweet: params[:tweet],
+      post_time: post_time
+      )
+
+    if @tweet.save
+      session[:error] = false
+      session[:post_time] = @tweet.post_time
+      redirect '/tweets'
+    else
+      erb :'tweets/index'
+    end
   else
-    post_time
-  end
-
-  @tweet = Tweet.new(
-    user_id: session[:user_id],
-    tweet: params[:tweet],
-    post_time: post_time
-    )
-
-  if @tweet.save
-    session[:error] = false
-    session[:post_time] = @tweet.post_time
+    session[:error] = true
     redirect '/tweets'
-  else
-    erb :'tweets/index'
   end
 end
 
