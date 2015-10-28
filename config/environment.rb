@@ -14,8 +14,8 @@ require 'chronic'
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
-@@CONSUMER_KEY="96mMMtccD8TVIiFY0fPq7i9pv"
-@@CONSUMER_SECRET="GcTbrbhUIgi25ZGBuESqvmbX8zx3BWRdcn1K9nArxA5Z1xSYSk"
+@@CONSUMER_KEY="Zli4lhkIIHcVTL40fxIoMUEUv"
+@@CONSUMER_SECRET="9sZ0XNxOL0EaKFBe3QWQYuahT0pXj9Nht5K2VjSrm8BTEXJEqh"
 @@CALLBACK_URL="https://antepostapp.herokuapp.com/oauth/callback"
 
 # Sinatra configuration
