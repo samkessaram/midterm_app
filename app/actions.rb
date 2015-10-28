@@ -3,10 +3,6 @@ get '/' do
   erb :index
 end
 
-get '/login' do
-  erb :'user/login'
-end
-
 get '/oauth/request_token' do
   consumer = OAuth::Consumer.new @@CONSUMER_KEY, @@CONSUMER_SECRET, :site => 'https://api.twitter.com'
 
